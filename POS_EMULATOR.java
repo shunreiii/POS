@@ -210,12 +210,12 @@ public class POS_EMULATOR {
             System.exit(0);
         }
         
-        else if(!"1".equals(choice)||!"2".equals(choice)||!"3".equals(choice)){
+        if(!"1".equals(choice)||!"2".equals(choice)||!"3".equals(choice)){
             System.out.println("INVALID INPUT, PLEASE TRY AGAIN :)");
         }
         
         
         }//WHILE  
     }//PSVM
-}//PUBLIC CLASSLASS*/
+}//PUBLIC CLASS
 
