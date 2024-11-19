@@ -1,12 +1,9 @@
 package org.cruz_shaun;
 import java.util.Scanner;
-/*NOTES SO FAR: (MAGLAGAY KAYO DITO IF MAY NADISCOVER PA KAYO)
-1. No applied methods yet. 
-*/
+
 public class POS_EMULATOR {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        Scanner scan2 = new Scanner(System.in);
         //PRICES OF DRINKS
         double sAmericano = 75.00D, mAmericano = 85.00D, lAmericano = 90.00D, sSlatte = 110.00D, mSlatte = 125.00D, lSlatte = 130.00D;
         double sVlatte = 105.00D, mVlatte = 115.00D, lVlatte = 130.00D, sCaramel = 120.00D, mCaramel = 135.00D, lCaramel = 140.00D;
@@ -48,154 +45,249 @@ public class POS_EMULATOR {
             //ORDER CODES
                     if(orderCode.equalsIgnoreCase("A1")){ //SMALL AMERICANO
                         System.out.println("\n[S] Americano - Php 75.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        sAmericanoqntty += scan2.nextInt();
+                        sAmericanoqntty += scan.nextInt();
                         
-                        sAmericanottl = (sAmericano * sAmericanoqntty);
-                        ctrAmericanoS++;
-                        System.out.println("\n------------------------------");//<- USED TO DIVIDE CONTENTS TO MINIMIZE CONFUSIONS
-                        break;
+                        if(sAmericanoqntty > 0){
+                            sAmericanottl = (sAmericano * sAmericanoqntty);
+                            ctrAmericanoS++;
+                            System.out.println("\n------------------------------");//<- USED TO DIVIDE CONTENTS TO MINIMIZE CONFUSIONS
+                            break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("A2")){ //MEDIUM AMERICANO
                         System.out.println("\n[M] Americano - Php 85.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        mAmericanoqntty += scan2.nextInt();
+                        mAmericanoqntty += scan.nextInt();
                         
-                        mAmericanottl = (mAmericano * mAmericanoqntty);                   
-                        ctrAmericanoM++;
-                        System.out.println("\n------------------------------");
+                        if(mAmericanoqntty > 0){
+                            mAmericanottl = (mAmericano * mAmericanoqntty);                   
+                            ctrAmericanoM++;
+                            System.out.println("\n------------------------------");
                         break;
+                        }else{
+                                System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("A3")){ //LARGE AMERICANO
                         System.out.println("\n[L] Americano - Php 90.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
                         lAmericanoqntty += scan.nextInt();
                         
+                        if(lAmericanoqntty > 0){
                         lAmericanottl = (lAmericano * lAmericanoqntty);                  
                         ctrAmericanoL++;
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("S1")){ //SMALL SPANISH LATTE
                         System.out.println("\n[S] Spanish Latte - Php 110.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        sSlatteqntty += scan2.nextInt();
+                        sSlatteqntty += scan.nextInt();
                         
+                        if(sSlatteqntty > 0){
                         sSlattettl = (sSlatte * sSlatteqntty);
                         ctrSlatteS++;
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("S2")){ //MEDIUM SPANISH LATTE
                         System.out.println("\n[M] Spanish Latte - Php 110.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        mSlatteqntty += scan2.nextInt();
+                        mSlatteqntty += scan.nextInt();
                         
+                        if(mSlatteqntty > 0){ 
                         mSlattettl = (mSlatte * mSlatteqntty);
                         ctrSlatteM++;
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("S3")){ //LARGE SPANISH LATTE
                         System.out.println("\n[L] Spanish Latte - Php 130.00");
+                        while(ordering.equalsIgnoreCase("Y")){
                         System.out.print("Enter Quantity: ");
-                        lSlatteqntty += scan2.nextInt();
-
+                        lSlatteqntty += scan.nextInt();
+                        
+                        if(lSlatteqntty > 0){
                         lSlattettl = (lSlatte * lSlatteqntty);
                         ctrSlatteL++;
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("V1")){ //SMALL VANILLA LATTE
                         System.out.println("\n[S] Vanilla Latte - Php 105.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        sVlatteqntty += scan2.nextInt();
-
+                        sVlatteqntty += scan.nextInt();
+                        
+                        if(sVlatteqntty > 0){
                         sVlattettl = (sVlatte * sVlatteqntty);
                         ctrVlatteS++;
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("V2")){ //MEDIUM VANILLA LATTE
                         System.out.println("\n[M] Vanilla Latte - Php 115.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        mVlatteqntty += scan2.nextInt();
-
+                        mVlatteqntty += scan.nextInt();
+                        
+                        if(mVlatteqntty > 0){
                         mVlattettl = (mVlatte * mVlatteqntty);
                         ctrVlatteM++;
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("V3")){ //LARGE VANILLA LATTE
                         System.out.println("\n[L] Vanilla Latte - Php 130.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        lVlatteqntty += scan2.nextInt();
+                        lVlatteqntty += scan.nextInt();
 
+                        if(lVlatteqntty > 0){
                         lVlattettl = (lVlatte * lVlatteqntty);
                         ctrVlatteL++;    
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("C1")){ //SMALL CARAMEL MACHIATTO
                         System.out.println("\n[S] Caramel Machiatto - Php 120.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        sCaramelqntty += scan2.nextInt();
+                        sCaramelqntty += scan.nextInt();
 
+                        if(sCaramelqntty > 0){
                         sCaramelttl = (sCaramel * sCaramelqntty);
                         ctrCaramelS++;   
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("C2")){ //MEDIUM CARAMEL MACHIATTO
                         System.out.println("\n[M] Caramel Machiatto - Php 135.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        mCaramelqntty += scan2.nextInt();
+                        mCaramelqntty += scan.nextInt();
 
+                        if(mCaramelqntty > 0){
                         mCaramelttl = (mCaramel * mCaramelqntty);
                         ctrCaramelM++;
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("C3")){ //LARGE CARAMEL MACHIATTO
                         System.out.println("\n[L] Caramel Machiatto - Php 140.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        lCaramelqntty += scan2.nextInt();
+                        lCaramelqntty += scan.nextInt();
 
+                        if(lCaramelqntty > 0){
                         lCaramelttl = (lCaramel * lCaramelqntty);
                         ctrCaramelL++;
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("P1")){ //WAFFLES
                         System.out.println("\nWaffles - Php 105.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        waffleqntty += scan2.nextInt();
+                        waffleqntty += scan.nextInt();
 
+                        if(waffleqntty > 0){
                         wafflettl = (wfl * waffleqntty);
                         ctrWaffle++;
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("p2")){ //CROISSANT
                         System.out.println("\nCroissant - Php 115.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        crntqntty += scan2.nextInt();
+                        crntqntty += scan.nextInt();
 
+                        if(crntqntty > 0){
                         crntttl = (crsnt * crntqntty);
                         ctrCroissant++;
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("P3")){ //CROFFLE
                         System.out.println("\nCroffle - Php 125.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        crflqntty += scan2.nextInt();
+                        crflqntty += scan.nextInt();
 
+                        if(crflqntty > 0){
                         crflttl = (crfl * crflqntty);
                         ctrCroffle++;
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.equalsIgnoreCase("P4")){ //CINNAMON ROLL
                         System.out.println("\nCinammon Roll - Php 125.00");
+                        while(ordering.equalsIgnoreCase("y")){
                         System.out.print("Enter Quantity: ");
-                        cnmrlqntty += scan2.nextInt();
+                        cnmrlqntty += scan.nextInt();
 
+                        if(cnmrlqntty > 0){
                         cnmrlttl = (cnmrl * cnmrlqntty);
                         ctrCinammon++;
                         System.out.println("\n------------------------------");
                         break;
+                        }else{
+                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        }
+                        }break;
                     }else if(orderCode.isBlank()||orderCode.isEmpty()){//BLANK INPUT
                         System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------");
                        
                     }else{//ERROR/INVALID INPUT
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------");
-                        
+                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------");         
                     }
             }//WHILE PARA PAG INVALID BABALIK LANG SYA SA ORDERCODE
             }//IF EQUAL1
@@ -267,14 +359,15 @@ public class POS_EMULATOR {
                 System.out.println("\n=============================================================");
 
                 do{
-                System.out.print("\nHow much would you like to pay? :\tphp");
+                System.out.print("\nHow much would you like to pay? :\t");
                 payment = scan.nextDouble();
 
                         if(payment >= ttlBalance){
                         change = (payment-ttlBalance);
                         
+                        System.out.println("\nPAYMENT: \t\t\tphp" + (payment));
                         System.out.println("CHANGE: \t\t\tphp" + (change));
-                        System.out.println("\n-----------------------------------\nORDERS RECIEVED, THANK YOU SO MUCH!\n-----------------------------------\n");
+                        System.out.println("\n-------------------------------------\nORDERS RECIEVED, THANK YOU SO MUCH!\n-------------------------------------\n");
                         System.exit(0);
                     }if(payment<ttlBalance){
                         System.out.println("\nINSUFFICIENT FUNDS! PLEASE TRY AGAIN TO PROCEED.");
