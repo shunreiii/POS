@@ -359,7 +359,7 @@ public class POS_EMULATOR {
                 System.out.println("\n=============================================================");
 
                 do{
-                System.out.print("\nHow much would you like to pay? :\t");
+                System.out.print("\nEnter Payment:\t");
                 payment = scan.nextDouble();
 
                         if(payment >= ttlBalance){
