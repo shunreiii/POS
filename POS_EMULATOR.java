@@ -68,7 +68,7 @@ public class POS_EMULATOR {
                             mAmericanottl = (mAmericano * mAmericanoqntty);                   
                             ctrAmericanoM++;
                             System.out.println("\n------------------------------");
-                        break;
+                            break;
                         }else{
                                 System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
                         }
@@ -98,7 +98,7 @@ public class POS_EMULATOR {
                         sSlattettl = (sSlatte * sSlatteqntty);
                         ctrSlatteS++;
                         System.out.println("\n------------------------------");
-                        break;
+                            break;
                         }else{
                             System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
                         }
@@ -113,7 +113,7 @@ public class POS_EMULATOR {
                         mSlattettl = (mSlatte * mSlatteqntty);
                         ctrSlatteM++;
                         System.out.println("\n------------------------------");
-                        break;
+                            break;
                         }else{
                             System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
                         }
@@ -372,7 +372,7 @@ public class POS_EMULATOR {
                     }if(payment<ttlBalance){
                         System.out.println("\nINSUFFICIENT FUNDS! PLEASE TRY AGAIN TO PROCEED.");
                     }//IF KULANG ANG BAYAD NI ANTE
-                }while(payment!=-0);
+                }while(payment!=0);
             }//IF (2)
 
             if("3".equals(choice)){
@@ -382,6 +382,7 @@ public class POS_EMULATOR {
             if(!(choice.equalsIgnoreCase("1")||choice.equalsIgnoreCase("2")||choice.equalsIgnoreCase("3"))){
                     System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------");
                     }//IF MALI ANG INPUT SA 123
+        scan.nextLine();
         }//WHILE
         if(ordering.equalsIgnoreCase("N")){
             System.out.println("\n------------------------------\nOkay, Thank You! :)\n------------------------------");
