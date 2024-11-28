@@ -1,6 +1,7 @@
+package org.cruz_shaun;
 import java.util.Scanner;
 
-public class Main {
+public class POS_EMULATOR2 {
     //PRICES OF DRINKS
     static double sAmericano = 75.00D, mAmericano = 85.00D, lAmericano = 90.00D, sSlatte = 110.00D, mSlatte = 125.00D, lSlatte = 130.00D;
     static double sVlatte = 105.00D, mVlatte = 115.00D, lVlatte = 130.00D, sCaramel = 120.00D, mCaramel = 135.00D, lCaramel = 140.00D;
@@ -49,7 +50,7 @@ public class Main {
     }//mainMenu()
     
     public static void menu(){
-        System.out.println("===========================================================================================================");
+        System.out.println("\n===========================================================================================================");
         System.out.println("\t\t\t\t\t\t= MENU =");
         System.out.println("===========================================================================================================");  
         System.out.println("\nDRINKS\t\t\t     SMALL\t\t\t     MEDIUM\t\t\t     LARGE\n");
@@ -338,50 +339,51 @@ public class Main {
             }
         }//WHILE OF "ARE YOU SENIOR"
         
-        System.out.println("\n=============================================================");
-        System.out.println("\nORDERS: \t\tQUANTITY: \t\t\t PRICE: ");
+        System.out.println("\n================================================================================");
+        System.out.println("QTY: \t   ORDERS: \t\t\tUNIT PRICE: \t\t\tAMOUNT: ");
+        System.out.println("================================================================================\n");
         if(ctrAmericanoS > 0){
-            System.out.println("(S) Americano: \t\t " + " x" + "(" + sAmericanoqntty + ")" + "\t\t\t\t" + "Php" + sAmericanottl);
+            System.out.println(" x" + sAmericanoqntty +  "\t(S) Americano: \t\t\t " + "75.00" + "\t\t\t\t" + "Php" + sAmericanottl);
         }if(ctrAmericanoM > 0){
-            System.out.println("(M) Americano: \t\t " + " x" + "(" + mAmericanoqntty + ")" +  "\t\t\t\t" + "Php" + mAmericanottl);
+            System.out.println(" x" + mAmericanoqntty +  "\t(M) Americano: \t\t\t " + "85.00" +  "\t\t\t\t" + "Php" + mAmericanottl);
         }if(ctrAmericanoL > 0){
-            System.out.println("(L) Americano: \t\t " + " x" + "(" + lAmericanoqntty + ")" +  "\t\t\t\t" + "Php" + lAmericanottl);
+            System.out.println(" x" + lAmericanoqntty + "\t(L) Americano: \t\t\t " + "90.00" +  "\t\t\t\t" + "Php" + lAmericanottl);
         }if(ctrSlatteS > 0){
-            System.out.println("(S) Spanish Latte: \t " + " x" + "(" + sSlatteqntty + ")" +  "\t\t\t\t" + "Php" + sSlattettl);
+            System.out.println(" x" + sSlatteqntty + "\t(S) Spanish Latte: \t\t " + "110.00" +  "\t\t\t\t" + "Php" + sSlattettl);
         }if(ctrSlatteM > 0){
-            System.out.println("(M) Spanish Latte: \t " + " x" + "(" + mSlatteqntty + ")" +  "\t\t\t\t" + "Php" + mSlattettl);
+            System.out.println(" x" + mSlatteqntty + "\t(M) Spanish Latte: \t\t " +  "125.00" +  "\t\t\t\t" + "Php" + mSlattettl);
         }if(ctrSlatteL > 0){
-            System.out.println("(L) Spanish Latte: \t " + " x" + "(" + lSlatteqntty + ")" +  "\t\t\t\t" + "Php" + lSlattettl);
+            System.out.println(" x" + lSlatteqntty + "\t(L) Spanish Latte: \t\t " + "130.00" +  "\t\t\t\t" + "Php" + lSlattettl);
         }if(ctrVlatteS > 0){
-            System.out.println("(S) Vanilla Latte: \t " + " x" + "(" + sVlatteqntty + ")" +  "\t\t\t\t" + "Php" + sVlattettl);
+            System.out.println(" x" + sVlatteqntty + "\t(S) Vanilla Latte: \t\t " + "105.00" +  "\t\t\t\t" + "Php" + sVlattettl);
         }if(ctrVlatteM > 0){
-            System.out.println("(M) Vanilla Latte: \t " + " x" + "(" + mVlatteqntty + ")" +  "\t\t\t\t" + "Php" + mVlattettl);
+            System.out.println(" x" + mVlatteqntty + "\t(M) Vanilla Latte: \t\t " + "115.00" +  "\t\t\t\t" + "Php" + mVlattettl);
         }if(ctrVlatteL > 0){
-            System.out.println("(L) Vanilla Latte: \t " + " x" + "(" + lVlatteqntty + ")" +  "\t\t\t\t" + "Php" + lVlattettl);
+            System.out.println(" x" + lVlatteqntty + "\t(L) Vanilla Latte: \t\t " + "130.00" +  "\t\t\t\t" + "Php" + lVlattettl);
         }if(ctrCaramelS > 0){
-            System.out.println("(S) Caramel Machiatto: \t " + " x" + "(" + sCaramelqntty + ")" +  "\t\t\t\t" + "Php" + sCaramelttl);
+            System.out.println(" x" + sCaramelqntty + "\t(S) Caramel Machiatto: \t\t " + "120.00" +  "\t\t\t\t" + "Php" + sCaramelttl);
         }if(ctrCaramelM > 0){
-            System.out.println("(M) Caramel Machiatto: \t " + " x" + "(" + mCaramelqntty + ")" +  "\t\t\t\t" + "Php" + mCaramelttl);
+            System.out.println(" x" + mCaramelqntty + "\t(M) Caramel Machiatto: \t\t " + "135.00" +  "\t\t\t\t" + "Php" + mCaramelttl);
         }if(ctrCaramelL > 0){
-            System.out.println("(L) Caramel Machiatto: \t " + " x" + "(" + lCaramelqntty + ")" +  "\t\t\t\t" + "Php" + lCaramelttl);
+            System.out.println(" x" + lCaramelqntty + "\t(L) Caramel Machiatto: \t\t " + "140.00" +  "\t\t\t\t" + "Php" + lCaramelttl);
         }if(ctrWaffle > 0){
-            System.out.println("Waffle: \t\t " + " x" + "(" + waffleqntty + ")" +  "\t\t\t\t" + "Php" + wafflettl);
+            System.out.println(" x" + waffleqntty + "\t    Waffle: \t\t\t " + "105.00" +  "\t\t\t\t" + "Php" + wafflettl);
         }if(ctrCroissant > 0){
-            System.out.println("Croissant: \t\t " + " x" + "(" + crntqntty + ")" +  "\t\t\t\t" + "Php" + crntttl);
+            System.out.println(" x" + crntqntty + "\t    Croissant: \t\t\t " + "115.00" +  "\t\t\t\t" + "Php" + crntttl);
         }if(ctrCinammon > 0){
-            System.out.println("Cinnamon Roll: \t\t " + " x" + "(" + cnmrlqntty + ")" +  "\t\t\t\t" + "Php" + cnmrlttl);
+            System.out.println(" x" + cnmrlqntty + "\t    Cinnamon Roll: \t\t " + "125.00" +  "\t\t\t\t" + "Php" + cnmrlttl);
         }if(ctrCroffle > 0){
-            System.out.println("Croffle: \t\t " + " x" + "(" + crflqntty + ")" +  "\t\t\t\t" + "Php" + crflttl);}
+            System.out.println(" x" + crflqntty + "\t    Croffle: \t\t\t " + "125.00" +  "\t\t\t\t" + "Php" + crflttl);}
 
         ttlBalance = ((total + vat) - (ttlDeduct));
         System.out.println("\n\n");
-        System.out.println("\t\t\tTotal items: \t\tx" + "(" + itemCtr + ")");
-        System.out.println("\t\t\tSubtotal: \t\tphp" + total);
-        System.out.println("\t\t\t\t--------------------");
-        System.out.println("\t\t\tVAT: \t\t\tphp" + vat);
-        System.out.println("\t\t\tTotal Discount: \t-php" + ttlDeduct);
-        System.out.println("\t\t\tTOTAL BALANCE:\t\tphp" + ttlBalance);
-        System.out.println("\n=============================================================");
+        System.out.println("\t\t\t\t\t\tTotal items: \t\tx" + "(" + itemCtr + ")");
+        System.out.println("\t\t\t\t\t\tSubtotal: \t\tphp" + total);
+        System.out.println("\t\t\t\t\t\t\t--------------------");
+        System.out.println("\t\t\t\t\t\tVAT: \t\t\t php" + vat);
+        System.out.println("\t\t\t\t\t\tTotal Discount: \t-php" + ttlDeduct);
+        System.out.println("\t\t\t\t\t\tTOTAL BALANCE:\t\t php" + ttlBalance);
+        System.out.println("\n================================================================================");
     }//receipt()
  
     public static void doPayment(){
