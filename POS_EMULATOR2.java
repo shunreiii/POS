@@ -1,6 +1,7 @@
+package org.cruz_shaun;
 import java.util.Scanner;
 
-public class Main {
+public class POS_EMULATOR2 {
     //PRICES OF DRINKS
     static double sAmericano = 75.00D, mAmericano = 85.00D, lAmericano = 90.00D, sSlatte = 110.00D, mSlatte = 125.00D, lSlatte = 130.00D;
     static double sVlatte = 105.00D, mVlatte = 115.00D, lVlatte = 130.00D, sCaramel = 120.00D, mCaramel = 135.00D, lCaramel = 140.00D;
@@ -28,11 +29,11 @@ public class Main {
                 receipt();
                 doPayment();
             } else {//IF NO ORDER WAS MADE YET STILL CHOSE 2 (LOOP BACK)
-                System.out.println("\n------------------------------------\nCannot proceed without an order.\n------------------------------------");
+                System.out.println("\n--------------------------------\nCannot proceed without an order.\n--------------------------------");
             }
 
         } else if(choice.equalsIgnoreCase("3")){//EXIT/CANCEL THE PROGRAM
-            System.out.println("\n------------------------------\nOkay, Thank You!\n------------------------------");
+            System.out.println("\n---------------------------------\n\tOkay, Thank You!\n---------------------------------");
             System.exit(0);
         } else if(choice.isEmpty()||choice.isBlank()){
             System.out.println("\n------------------------------------\nNO DETECTED INPUT, PLEASE TRY AGAIN!\n------------------------------------");
@@ -52,12 +53,12 @@ public class Main {
         System.out.println("\n===========================================================================================================");
         System.out.println("\t\t\t\t\t\t= MENU =");
         System.out.println("===========================================================================================================");  
-        System.out.println("\nDRINKS\t\t\t     SMALL\t\t\t     MEDIUM\t\t\t     LARGE\n");
+        System.out.println("\nDRINKS\t\t\t     SMALL\t\t\t     MEDIUM\t\t\t     LARGE\n---------------");
         System.out.println("AMERICANO \t\t [ A1 ] - Php75.00 \t\t [ A2 ] - Php85.00 \t\t [ A3 ] - Php90.00");
         System.out.println("SPANISH LATTE \t\t [ S1 ] - Php110.00 \t\t [ S2 ] - Php125.00 \t\t [ S3 ] - Php130.00");
         System.out.println("VANILLA LATTE \t\t [ V1 ] - Php105.00 \t\t [ V2 ] - Php115.00  \t\t [ V3 ] - Php130.00");
         System.out.println("CARAMEL MACHIATTO \t [ C1 ] - Php120.00 \t\t [ C2 ] - Php135.00  \t\t [ C3 ] - Php140.00");
-        System.out.println("\nPASTRIES\n");
+        System.out.println("\n\nPASTRIES\n---------------");
         System.out.println("WAFFLES \t\t [ P1 ] - Php105.00 \nCROISSANT \t\t [ P2 ] - Php115.00 \nCROFFLE \t\t [ P3 ] - Php125.00 \nCINNAMON ROLL \t\t [ P4 ] - Php125.00");
         System.out.println("===========================================================================================================");
     }//menu()
@@ -65,7 +66,7 @@ public class Main {
     public static void orderCode(){
         Scanner scan = new Scanner(System.in);
         while (true){
-            System.out.print("\nENTER ORDER CODE (a1/A1): ");
+            System.out.print("\nENTER ORDER CODE (EX. a1/A1): ");
             orderCode = scan.nextLine();
 
             if(orderCode.equalsIgnoreCase("A1")){ //SMALL AMERICANO
@@ -80,7 +81,7 @@ public class Main {
                         if(sAmericanoqntty > 0){
                             sAmericanottl = (sAmericano * sAmericanoqntty);
                             ctrAmericanoS++;
-                            System.out.println("\nNOTE: To order multiple products, simply choose 1 again in the main menu\n------------------------------");//<- USED TO DIVIDE CONTENTS TO MINIMIZE CONFUSIONS
+                            System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");//<- USED TO DIVIDE CONTENTS TO MINIMIZE CONFUSIONS
                         break; 
                         }else{
                             System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -101,7 +102,7 @@ public class Main {
                     if(mAmericanoqntty > 0){
                         mAmericanottl = (mAmericano * mAmericanoqntty);                   
                         ctrAmericanoM++;
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -122,7 +123,7 @@ public class Main {
                         if(lAmericanoqntty > 0){
                             lAmericanottl = (lAmericano * lAmericanoqntty);                  
                             ctrAmericanoL++;
-                            System.out.println("\n------------------------------");
+                            System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                             break;
                         }else{
                             System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -143,7 +144,7 @@ public class Main {
                     if(sSlatteqntty > 0){
                         sSlattettl = (sSlatte * sSlatteqntty);
                         ctrSlatteS++;
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -164,7 +165,7 @@ public class Main {
                     if(mSlatteqntty > 0){ 
                         mSlattettl = (mSlatte * mSlatteqntty);
                         ctrSlatteM++;
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -185,7 +186,7 @@ public class Main {
                     if(lSlatteqntty > 0){
                         lSlattettl = (lSlatte * lSlatteqntty);
                         ctrSlatteL++;
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -206,7 +207,7 @@ public class Main {
                     if(sVlatteqntty > 0){
                         sVlattettl = (sVlatte * sVlatteqntty);
                         ctrVlatteS++;
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -227,7 +228,7 @@ public class Main {
                     if(mVlatteqntty > 0){
                         mVlattettl = (mVlatte * mVlatteqntty);
                         ctrVlatteM++;
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -248,7 +249,7 @@ public class Main {
                     if(lVlatteqntty > 0){
                         lVlattettl = (lVlatte * lVlatteqntty);
                         ctrVlatteL++;    
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -269,7 +270,7 @@ public class Main {
                     if(sCaramelqntty > 0){
                         sCaramelttl = (sCaramel * sCaramelqntty);
                         ctrCaramelS++;   
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -290,7 +291,7 @@ public class Main {
                     if(mCaramelqntty > 0){
                         mCaramelttl = (mCaramel * mCaramelqntty);
                         ctrCaramelM++;
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -311,7 +312,7 @@ public class Main {
                     if(lCaramelqntty > 0){
                         lCaramelttl = (lCaramel * lCaramelqntty);
                         ctrCaramelL++;
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -332,7 +333,7 @@ public class Main {
                     if(waffleqntty > 0){
                         wafflettl = (wfl * waffleqntty);
                         ctrWaffle++;
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -353,7 +354,7 @@ public class Main {
                     if(crntqntty > 0){
                         crntttl = (crsnt * crntqntty);
                         ctrCroissant++;
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -374,7 +375,7 @@ public class Main {
                     if(crflqntty > 0){
                         crflttl = (crfl * crflqntty);
                         ctrCroffle++;
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
@@ -395,7 +396,7 @@ public class Main {
                     if(cnmrlqntty > 0){
                         cnmrlttl = (cnmrl * cnmrlqntty);
                         ctrCinammon++;
-                        System.out.println("\n------------------------------");
+                        System.out.println("\nItem Added!\n\nNOTE: To order multiple products, simply choose 1 again in the main menu.\n-------------------------------------------------------------------------");
                     break;
                     }else{
                         System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
