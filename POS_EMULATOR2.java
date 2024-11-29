@@ -8,12 +8,12 @@ public class POS_EMULATOR2 {
     //PRICES OF PASTRIES
     static double wfl = 105.00D, crsnt = 115.00D, crfl = 125.00D, cnmrl = 125.00D;
     //MGA PERA
-    static double sAmericanottl=0, mAmericanottl=0, lAmericanottl=0, sSlattettl=0, mSlattettl=0, lSlattettl=0, sVlattettl=0, mVlattettl=0, lVlattettl=0, sCaramelttl=0, mCaramelttl=0, lCaramelttl=0, wafflettl=0, crntttl=0, cnmrlttl=0, crflttl=0, ttlDeduct=0, vat, payment, change, ttlBalance;
+    static double sAmericanottl, mAmericanottl, lAmericanottl, sSlattettl, mSlattettl, lSlattettl, sVlattettl, mVlattettl, lVlattettl, sCaramelttl, mCaramelttl, lCaramelttl, wafflettl, crntttl, cnmrlttl, crflttl, ttlDeduct, vat, change, payment, ttlBalance;
     //INPUTS OF USER
     static String orderCode, choice, choice2;
     //PANG TRIGGER SA RECEIPT (we use ctr to display na choice of drinks(size included) basta mag ctr>0 lalabas na yan sa receipt)
-    static int ctrAmericanoS=0, ctrAmericanoM=0, ctrAmericanoL=0, ctrSlatteS=0, ctrSlatteM=0, ctrSlatteL=0, ctrVlatteS=0, ctrVlatteM=0, ctrVlatteL=0, ctrCaramelS=0, ctrCaramelM=0, ctrCaramelL=0, ctrWaffle=0, ctrCroissant=0, ctrCinammon=0, ctrCroffle=0;
-    static int itemCtr, sAmericanoqntty=0, mAmericanoqntty=0, lAmericanoqntty=0, sSlatteqntty=0, mSlatteqntty=0, lSlatteqntty=0, sVlatteqntty=0, mVlatteqntty=0, lVlatteqntty=0, sCaramelqntty=0, mCaramelqntty=0, lCaramelqntty=0, waffleqntty=0, crntqntty=0, cnmrlqntty=0, crflqntty=0;
+    static int ctrAmericanoS, ctrAmericanoM, ctrAmericanoL, ctrSlatteS, ctrSlatteM, ctrSlatteL, ctrVlatteS, ctrVlatteM, ctrVlatteL, ctrCaramelS, ctrCaramelM, ctrCaramelL, ctrWaffle, ctrCroissant, ctrCinammon, ctrCroffle;
+    static int itemCtr, sAmericanoqntty, mAmericanoqntty, lAmericanoqntty, sSlatteqntty, mSlatteqntty, lSlatteqntty, sVlatteqntty, mVlatteqntty, lVlatteqntty, sCaramelqntty, mCaramelqntty, lCaramelqntty, waffleqntty, crntqntty, cnmrlqntty, crflqntty;
 
     public static void main(String[] args){
         while (true){
@@ -21,7 +21,7 @@ public class POS_EMULATOR2 {
         mainMenu();
         choice = scan.nextLine();
         
-        if(choice.equalsIgnoreCase("1")){//ORDER PRODUCST
+        if(choice.equalsIgnoreCase("1")){//ORDER PRODUCT
         menu();
         orderCode();
         }else if(choice.equalsIgnoreCase("2")){//PROCEEDING TO CHECKOUT -> PAYMENT
@@ -29,16 +29,16 @@ public class POS_EMULATOR2 {
                 receipt();
                 doPayment();
             } else {//IF NO ORDER WAS MADE YET STILL CHOSE 2 (LOOP BACK)
-                System.out.println("\n------------------------------\nCannot proceed without an order.\n------------------------------");
+                System.out.println("\n------------------------------------\nCannot proceed without an order.\n------------------------------------");
             }
 
         } else if(choice.equalsIgnoreCase("3")){//EXIT/CANCEL THE PROGRAM
             System.out.println("\n------------------------------\nOkay, Thank You!\n------------------------------");
             System.exit(0);
         } else if(choice.isEmpty()||choice.isBlank()){
-            System.out.println("\n------------------------------\nNO DETECTED INPUT, PLEASE TRY AGAIN!\n------------------------------");
-        } else {
-            System.out.println("\n------------------------------\nINVALID INPUT, PLEASE TRY AGAIN!\n------------------------------");
+            System.out.println("\n------------------------------------\nNO DETECTED INPUT, PLEASE TRY AGAIN!\n------------------------------------");
+        } else{
+            System.out.println("\n--------------------------------\nINVALID INPUT, PLEASE TRY AGAIN!\n--------------------------------");
         }
         }//WHILE 
     }//PSVM
@@ -60,36 +60,35 @@ public class POS_EMULATOR2 {
         System.out.println("CARAMEL MACHIATTO \t [ C1 ] - Php120.00 \t\t [ C2 ] - Php135.00  \t\t [ C3 ] - Php140.00");
         System.out.println("\nPASTRIES\n");
         System.out.println("WAFFLES \t\t [ P1 ] - Php105.00 \nCROISSANT \t\t [ P2 ] - Php115.00 \nCROFFLE \t\t [ P3 ] - Php125.00 \nCINNAMON ROLL \t\t [ P4 ] - Php125.00");
-        System.out.println("===========================================================================================================\n");
+        System.out.println("===========================================================================================================");
     }//menu()
     
     public static void orderCode(){
         Scanner scan = new Scanner(System.in);
         while (true){
-        System.out.print("\n ENTER ORDER CODE (a1/A1): ");
-        orderCode = scan.nextLine();
-        
-        if(orderCode.equalsIgnoreCase("A1")){ //SMALL AMERICANO
-            System.out.println("\n[S] Americano - Php 75.00");
-            while(true){
-                System.out.print("Enter Quantity: ");
-                String sAmericanoqty = scan.nextLine();
+            System.out.print("\nENTER ORDER CODE (a1/A1): ");
+            orderCode = scan.nextLine();
 
-                if(!(sAmericanoqty.isEmpty()||sAmericanoqty.isBlank()||sAmericanoqty.equals("0"))){
-                    sAmericanoqntty += Integer.parseInt(sAmericanoqty);
+            if(orderCode.equalsIgnoreCase("A1")){ //SMALL AMERICANO
+                System.out.println("\n[S] Americano - Php 75.00");
+                while(true){
+                    System.out.print("Enter Quantity: ");
+                    String sAmericanoqty = scan.nextLine();
 
-                    if(sAmericanoqntty > 0){
-                        sAmericanottl = (sAmericano * sAmericanoqntty);
-                        ctrAmericanoS++;
-                        System.out.println("\n------------------------------");//<- USED TO DIVIDE CONTENTS TO MINIMIZE CONFUSIONS
-                    break; 
+                    if(!(sAmericanoqty.isEmpty() || sAmericanoqty.isBlank()) && sAmericanoqty.matches("\\d+")){//Used a regular expression to ensure that the input will always contain an integer
+                        sAmericanoqntty += Integer.parseInt(sAmericanoqty);
+
+                        if(sAmericanoqntty > 0){
+                            sAmericanottl = (sAmericano * sAmericanoqntty);
+                            ctrAmericanoS++;
+                            System.out.println("\nNOTE: To order multiple products, simply choose 1 again in the main menu\n------------------------------");//<- USED TO DIVIDE CONTENTS TO MINIMIZE CONFUSIONS
+                        break; 
+                        }else{
+                            System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
+                        }
                     }else{
-                        sAmericanoqntty =- sAmericanoqntty;
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
-                    }
-                }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
-                }
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
+                        }
             }break;
         }else if(orderCode.equalsIgnoreCase("A2")){ //MEDIUM AMERICANO
             System.out.println("\n[M] Americano - Php 85.00");
@@ -97,7 +96,7 @@ public class POS_EMULATOR2 {
                 System.out.print("Enter Quantity: ");
                 String mAmericanoqty = scan.nextLine();
 
-                if(!(mAmericanoqty.isEmpty()||mAmericanoqty.isBlank()||mAmericanoqty.equals("0"))){
+                if(!(mAmericanoqty.isEmpty() || mAmericanoqty.isBlank()) && mAmericanoqty.matches("\\d+")){
                     mAmericanoqntty += Integer.parseInt(mAmericanoqty);
 
                     if(mAmericanoqntty > 0){
@@ -106,10 +105,10 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                 }
             }break;
         }else if(orderCode.equalsIgnoreCase("A3")){ //LARGE AMERICANO
@@ -118,7 +117,7 @@ public class POS_EMULATOR2 {
                     System.out.print("Enter Quantity: ");
                     String lAmericanoqty = scan.nextLine();
 
-                    if(!(lAmericanoqty.isEmpty()||lAmericanoqty.isBlank()||lAmericanoqty.equals("0"))){
+                    if(!(lAmericanoqty.isEmpty() || lAmericanoqty.isBlank()) && lAmericanoqty.matches("\\d+")){
                         lAmericanoqntty += Integer.parseInt(lAmericanoqty);
 
                         if(lAmericanoqntty > 0){
@@ -127,10 +126,10 @@ public class POS_EMULATOR2 {
                             System.out.println("\n------------------------------");
                             break;
                         }else{
-                            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                            System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                         }
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }break;
         }else if(orderCode.equalsIgnoreCase("S1")){ //SMALL SPANISH LATTE
@@ -139,7 +138,7 @@ public class POS_EMULATOR2 {
                 System.out.print("Enter Quantity: ");
                 String sSlatteqty = scan.nextLine();
 
-                if(!(sSlatteqty.isEmpty()||sSlatteqty.isBlank()||sSlatteqty.equals("0"))){
+                if(!(sSlatteqty.isEmpty() || sSlatteqty.isBlank()) && sSlatteqty.matches("\\d+")){
                     sSlatteqntty += Integer.parseInt(sSlatteqty);
 
                     if(sSlatteqntty > 0){
@@ -148,10 +147,10 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
             }break;
         }else if(orderCode.equalsIgnoreCase("S2")){ //MEDIUM SPANISH LATTE
@@ -160,7 +159,7 @@ public class POS_EMULATOR2 {
                 System.out.print("Enter Quantity: ");
                 String mSlatteqty = scan.nextLine();
 
-                if(!(mSlatteqty.isEmpty()||mSlatteqty.isBlank()||mSlatteqty.equals("0"))){
+                if(!(mSlatteqty.isEmpty() || mSlatteqty.isBlank()) && mSlatteqty.matches("\\d+")){
                     mSlatteqntty += Integer.parseInt(mSlatteqty);
 
                     if(mSlatteqntty > 0){ 
@@ -169,10 +168,10 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                 }
             }break;
         }else if(orderCode.equalsIgnoreCase("S3")){ //LARGE SPANISH LATTE
@@ -181,7 +180,7 @@ public class POS_EMULATOR2 {
                 System.out.print("Enter Quantity: ");
                 String lSlatteqty = scan.nextLine();
 
-                if(!(lSlatteqty.isEmpty()||lSlatteqty.isBlank()||lSlatteqty.equals("0"))){
+                if(!(lSlatteqty.isEmpty() || lSlatteqty.isBlank()) && lSlatteqty.matches("\\d+")){
                     lSlatteqntty += Integer.parseInt(lSlatteqty);
 
                     if(lSlatteqntty > 0){
@@ -190,10 +189,10 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                 }
             }break;
         }else if(orderCode.equalsIgnoreCase("V1")){ //SMALL VANILLA LATTE
@@ -202,7 +201,7 @@ public class POS_EMULATOR2 {
                 System.out.print("Enter Quantity: ");
                 String sVlatteqty = scan.nextLine();
 
-                if(!(sVlatteqty.isEmpty()||sVlatteqty.isBlank()||sVlatteqty.equals("0"))){
+                if(!(sVlatteqty.isEmpty() || sVlatteqty.isBlank()) && sVlatteqty.matches("\\d+")){
                     sVlatteqntty += Integer.parseInt(sVlatteqty);
 
                     if(sVlatteqntty > 0){
@@ -211,10 +210,10 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
             }break;
         }else if(orderCode.equalsIgnoreCase("V2")){ //MEDIUM VANILLA LATTE
@@ -223,7 +222,7 @@ public class POS_EMULATOR2 {
             System.out.print("Enter Quantity: ");
             String mVlatteqty = scan.nextLine();
 
-                if(!(mVlatteqty.isEmpty()||mVlatteqty.isBlank()||mVlatteqty.equals("0"))){
+                if(!(mVlatteqty.isEmpty() || mVlatteqty.isBlank()) && mVlatteqty.matches("\\d+")){
                     mVlatteqntty += Integer.parseInt(mVlatteqty);
 
                     if(mVlatteqntty > 0){
@@ -232,10 +231,10 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
             }break;
         }else if(orderCode.equalsIgnoreCase("V3")){ //LARGE VANILLA LATTE
@@ -244,7 +243,7 @@ public class POS_EMULATOR2 {
                 System.out.print("Enter Quantity: ");
                 String lVlatteqty = scan.nextLine();
 
-                if(!(lVlatteqty.isEmpty()||lVlatteqty.isBlank()||lVlatteqty.equals("0"))){
+                if(!(lVlatteqty.isEmpty() || lVlatteqty.isBlank()) && lVlatteqty.matches("\\d+")){
                     lVlatteqntty += Integer.parseInt(lVlatteqty);
 
                     if(lVlatteqntty > 0){
@@ -253,10 +252,10 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
             }break;
         }else if(orderCode.equalsIgnoreCase("C1")){ //SMALL CARAMEL MACHIATTO
@@ -265,7 +264,7 @@ public class POS_EMULATOR2 {
                 System.out.print("Enter Quantity: ");
                 String sCaramelqty = scan.nextLine();
 
-                if(!(sCaramelqty.isEmpty()||sCaramelqty.isBlank()||sCaramelqty.equals("0"))){
+                if(!(sCaramelqty.isEmpty() || sCaramelqty.isBlank()) && sCaramelqty.matches("\\d+")){
                     sCaramelqntty += Integer.parseInt(sCaramelqty);
 
                     if(sCaramelqntty > 0){
@@ -274,10 +273,10 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                 }
             }break;
         }else if(orderCode.equalsIgnoreCase("C2")){ //MEDIUM CARAMEL MACHIATTO
@@ -286,7 +285,7 @@ public class POS_EMULATOR2 {
                 System.out.print("Enter Quantity: ");
                 String mCaramelqty = scan.nextLine();
 
-                if(!(mCaramelqty.isEmpty()||mCaramelqty.isBlank()||mCaramelqty.equals("0"))){
+                if(!(mCaramelqty.isEmpty() || mCaramelqty.isBlank()) && mCaramelqty.matches("\\d+")){
                     mCaramelqntty += Integer.parseInt(mCaramelqty);
 
                     if(mCaramelqntty > 0){
@@ -295,10 +294,10 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                 }
             }break;
         }else if(orderCode.equalsIgnoreCase("C3")){ //LARGE CARAMEL MACHIATTO
@@ -307,7 +306,7 @@ public class POS_EMULATOR2 {
                 System.out.print("Enter Quantity: ");
                 String lCaramelqty = scan.nextLine();
 
-                if(!(lCaramelqty.isEmpty()||lCaramelqty.isBlank()||lCaramelqty.equals("0"))){
+                if(!(lCaramelqty.isEmpty() || lCaramelqty.isBlank()) && lCaramelqty.matches("\\d+")){
                     lCaramelqntty += Integer.parseInt(lCaramelqty);
 
                     if(lCaramelqntty > 0){
@@ -316,10 +315,10 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                 }
             }break;
         }else if(orderCode.equalsIgnoreCase("P1")){ //WAFFLES
@@ -328,7 +327,7 @@ public class POS_EMULATOR2 {
                 System.out.print("Enter Quantity: ");
                 String waffleqty = scan.nextLine();
 
-                if(!(waffleqty.isEmpty()||waffleqty.isBlank()||waffleqty.equals("0"))){
+                if(!(waffleqty.isEmpty() || waffleqty.isBlank()) && waffleqty.matches("\\d+")){
                     waffleqntty += Integer.parseInt(waffleqty);
 
                     if(waffleqntty > 0){
@@ -337,20 +336,20 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                 }
             }break;
         }else if(orderCode.equalsIgnoreCase("p2")){ //CROISSANT
             System.out.println("\nCroissant - Php 115.00");
             while(true){
                 System.out.print("Enter Quantity: ");
-                String crntqnty = scan.nextLine();
+                String crntqty = scan.nextLine();
 
-                if(!(crntqnty.isEmpty()||crntqnty.isBlank()||crntqnty.equals("0"))){
-                    crntqntty += Integer.parseInt(crntqnty);
+                if(!(crntqty.isEmpty() || crntqty.isBlank()) && crntqty.matches("\\d+")){
+                    crntqntty += Integer.parseInt(crntqty);
 
                     if(crntqntty > 0){
                         crntttl = (crsnt * crntqntty);
@@ -358,20 +357,20 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                 }
             }break;
         }else if(orderCode.equalsIgnoreCase("P3")){ //CROFFLE
             System.out.println("\nCroffle - Php 125.00");
             while(true){
                 System.out.print("Enter Quantity: ");
-                String crflqnty = scan.nextLine();
+                String crflqty = scan.nextLine();
 
-                if(!(crflqnty.isEmpty()||crflqnty.isBlank()||crflqnty.equals("0"))){
-                    crflqntty += Integer.parseInt(crflqnty);
+                if(!(crflqty.isEmpty() || crflqty.isBlank()) && crflqty.matches("\\d+")){
+                    crflqntty += Integer.parseInt(crflqty);
 
                     if(crflqntty > 0){
                         crflttl = (crfl * crflqntty);
@@ -379,20 +378,20 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                 }
             }break;
         }else if(orderCode.equalsIgnoreCase("P4")){ //CINNAMON ROLL
             System.out.println("\nCinammon Roll - Php 125.00");
             while(true){
                 System.out.print("Enter Quantity: ");
-                String cnmrlqnty = scan.nextLine();
+                String cnmrlqty = scan.nextLine();
 
-                if(!(cnmrlqnty.isEmpty()||cnmrlqnty.isBlank()||cnmrlqnty.equals("0"))){
-                    cnmrlqntty += Integer.parseInt(cnmrlqnty);
+                if(!(cnmrlqty.isEmpty() || cnmrlqty.isBlank()) && cnmrlqty.matches("\\d+")){
+                    cnmrlqntty += Integer.parseInt(cnmrlqty);
 
                     if(cnmrlqntty > 0){
                         cnmrlttl = (cnmrl * cnmrlqntty);
@@ -400,17 +399,17 @@ public class POS_EMULATOR2 {
                         System.out.println("\n------------------------------");
                     break;
                     }else{
-                        System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                        System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                     }
                 }else{
-                    System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------\n");
+                    System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------\n");
                 }
             }break;
         }else if(orderCode.isBlank()||orderCode.isEmpty()){//BLANK INPUT
-            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------");
+            System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------");
 
         }else{//ERROR/INVALID INPUT
-            System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------");         
+            System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------");         
         }
         }
     }//orderCode()
@@ -421,7 +420,7 @@ public class POS_EMULATOR2 {
         vat = total * 0.20;
         
         Scanner scan = new Scanner(System.in);
-        System.out.println("\n------------------------------\nPROCEEDING TO CHECKOUT\n------------------------------");
+        System.out.println("\n----------------------\nPROCEEDING TO CHECKOUT\n----------------------");
         while(true){
             System.out.print("\nAre you a Senior citizen/PWD [Y/N]: ");
             choice2 = scan.nextLine();
@@ -432,7 +431,7 @@ public class POS_EMULATOR2 {
             }else if (choice2.equalsIgnoreCase("N")){
             break;
             }else{
-                System.out.println("\n------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n------------------------------");
+                System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------");
             }
         }//WHILE OF "ARE YOU SENIOR"
         
@@ -453,15 +452,17 @@ public class POS_EMULATOR2 {
         if(ctrCaramelL > 0){System.out.println(" x" + lCaramelqntty + "\t(L) Caramel Machiatto: \t\t " + "140.00" +  "\t\t\t\t" + "Php" + lCaramelttl);}
         if(ctrWaffle > 0){System.out.println(" x" + waffleqntty + "\t    Waffle: \t\t\t " + "105.00" +  "\t\t\t\t" + "Php" + wafflettl);}
         if(ctrCroissant > 0){System.out.println(" x" + crntqntty + "\t    Croissant: \t\t\t " + "115.00" +  "\t\t\t\t" + "Php" + crntttl);}
+        if(ctrCroffle > 0){System.out.println(" x" + crflqntty + "\t    Croffle: \t\t\t " + "125.00" +  "\t\t\t\t" + "Php" + crflttl);}
         if(ctrCinammon > 0){System.out.println(" x" + cnmrlqntty + "\t    Cinnamon Roll: \t\t " + "125.00" +  "\t\t\t\t" + "Php" + cnmrlttl);}
 
         ttlBalance = ((total + vat) - (ttlDeduct));
         System.out.println("\n\n");
         System.out.println("\t\t\t\t\t\tTotal items: \t\tx" + "(" + itemCtr + ")");
         System.out.println("\t\t\t\t\t\tSubtotal: \t\tphp" + total);
-        System.out.println("\t\t\t\t\t\t\t--------------------");
+        System.out.println("\t\t\t\t\t\t\t\t----------------");
         System.out.println("\t\t\t\t\t\tVAT: \t\t\t php" + vat);
         System.out.println("\t\t\t\t\t\tTotal Discount: \t-php" + ttlDeduct);
+        System.out.println("\t\t\t\t\t\t\t\t\t--------");
         System.out.println("\t\t\t\t\t\tTOTAL BALANCE:\t\t php" + ttlBalance);
         System.out.println("\n================================================================================");
     }//receipt()
@@ -471,22 +472,23 @@ public class POS_EMULATOR2 {
         while(true){
             System.out.print("\nPlease enter the amount to pay:\t");
             String pay = scan.nextLine();
-            if(!(pay.isBlank()||pay.isEmpty()||pay.equals(0))){
+            
+            if(!(pay.isBlank() || pay.isEmpty()) && pay.matches("\\d+(\\.\\d{1,2})?")){//same with the usage of other regex but this time, having the ()? means it is optional to use decimal
                 payment = Double.parseDouble(pay);
-
+                
                 if(payment >= ttlBalance){
                     change = (payment-ttlBalance);
-                        
+                    
                     System.out.println("\nPAYMENT: \t\t\tphp" + (payment));
                     System.out.println("CHANGE: \t\t\tphp" + (change));
-                    System.out.println("\n-------------------------------------\nORDERS RECIEVED, THANK YOU SO MUCH!\n-------------------------------------\n");
+                    System.out.println("\n-----------------------------------\nORDERS RECEIVED, THANK YOU SO MUCH!\n-----------------------------------\n");
                     System.exit(0);
                 }if(payment<ttlBalance){
-                    System.out.println("\n-------------------------------------\nINSUFFICIENT FUNDS! PLEASE TRY AGAIN TO PROCEED.\n-------------------------------------\n");
+                    System.out.println("\n------------------------------------------------\nINSUFFICIENT FUNDS! PLEASE TRY AGAIN TO PROCEED.\n------------------------------------------------");
                 }
             }else{
-                System.out.println("\n-------------------------------------\nINSUFFICIENT FUNDS! PLEASE TRY AGAIN TO PROCEED.\n-------------------------------------\n");
+                System.out.println("\n---------------------------------\nINVALID INPUT!, PLEASE TRY AGAIN.\n---------------------------------");
             }
-        }        
+        }
     }//doPayment()
-}//PUBLIC CLASS 
+}//PUBLIC CLASS
