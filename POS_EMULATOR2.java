@@ -1,7 +1,6 @@
-package org.cruz_shaun;
 import java.util.Scanner;
 
-public class POS_EMULATOR2 {
+public class Main {
     //PRICES OF DRINKS
     static double sAmericano = 75.00D, mAmericano = 85.00D, lAmericano = 90.00D, sSlatte = 110.00D, mSlatte = 125.00D, lSlatte = 130.00D;
     static double sVlatte = 105.00D, mVlatte = 115.00D, lVlatte = 130.00D, sCaramel = 120.00D, mCaramel = 135.00D, lCaramel = 140.00D;
